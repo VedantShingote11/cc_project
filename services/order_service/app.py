@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 orders = []
 
-USER_SERVICE = "http://localhost:5000"
-PRODUCT_SERVICE = "http://localhost:5001"
+USER_SERVICE = "http://13.219.249.103:5000"
+PRODUCT_SERVICE = "http://13.219.249.103:5001"
 
 
 @app.route("/orders", methods=["POST"])

@@ -1,31 +1,23 @@
-const EC2_IP = "http://YOUR_EC2_IP";
+const BASE_IP = "http://13.219.249.103";
 
-export const getUsers = async () => {
-    const res = await fetch(`${EC2_IP}:5000/users`);
+export async function getUsers() {
+    const res = await fetch(`${BASE_IP}:5000/users`);
     return res.json();
-};
+}
 
-export const getProducts = async () => {
-    const res = await fetch(`${EC2_IP}:5001/products`);
+export async function getProducts() {
+    const res = await fetch(`${BASE_IP}:5001/products`);
     return res.json();
-};
+}
 
-export const getOrders = async () => {
-    const res = await fetch(`${EC2_IP}:5002/orders`);
-    return res.json();
-};
-
-export const createOrder = async (user_id, product_id) => {
-    const res = await fetch(`${EC2_IP}:5002/orders`, {
+export async function createOrder(user_id: number, product_id: number) {
+    const res = await fetch(`${BASE_IP}:5002/orders`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-            user_id,
-            product_id,
-        }),
+        body: JSON.stringify({ user_id, product_id }),
     });
 
     return res.json();
-};
+}
